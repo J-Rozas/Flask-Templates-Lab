@@ -1,0 +1,30 @@
+{% extends "base.html" %}
+
+{% block content %}
+<h1>My To-Do Event!</h1>
+
+ <!-- lets put input form here-->
+ <form action="/addevents" method="post">
+    <label for="date">Date</label>
+    <input type="date" name="date" id="date">
+    <label for="name">Name</label>
+    <input type="text" name="name" id="name">
+    <label for="number">Number of guests</label>
+    <input type="text" name="number" id="number">
+    <label for="room">Room location</label>
+    <input type="text" name="room" id="room">
+    <label for="description">Description</label>
+    <textarea name="description" rows="2" cols="30"></textarea>
+    <input type="submit" value="Add Event">
+  </form>
+
+{% for event in events %}
+<div>
+    <p>
+        {{ event.date }} {{ event.name_of_event }} {{ event.number_of_guests }} {{ event.room_location }} {{ event.description }}
+    </p>
+
+</div>
+{% endfor %}
+
+{% endblock %}
