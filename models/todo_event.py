@@ -5,3 +5,6 @@ event_2 = Event("28 April", "Anna's birthday", 5, "Anna's house",
 "Anna's birthday party")
 
 event_list = [event_1, event_2]
+
+def add_new_event(new_event):
+    event_list.append(new_event)
