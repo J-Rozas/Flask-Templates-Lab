@@ -15,13 +15,26 @@
     <input type="text" name="room" id="room">
     <label for="description">Description</label>
     <textarea name="description" rows="2" cols="30"></textarea>
+    <legend>Select Recurring for recurring even or not recurring for not recurring event</legend>
+    <input type="radio" name="recurring" id="true" value="True" /><label for="track">Recurring</label><br />
+    <input type="radio" name="recurring" id="false" value="False"  /><label for="event">Not recurring</label><br/>
     <input type="submit" value="Add Event">
   </form>
 
+
+  <!-- Another form here -->
+  <!-- Form activates function to delete event -->
+  <!-- Function should be like event_list.delete(event) -->
 {% for event in events %}
 <div>
     <p>
         {{ event.date }} {{ event.name_of_event }} {{ event.number_of_guests }} {{ event.room_location }} {{ event.description }}
+        {% if event.recurring == "True" %}
+          <span>&#9200;</span>
+        {% endif %}
+        <form action="/deleteevent" method="post">
+          <input type="submit" value=" {{event.name_of_event}} ">
+        </form>
     </p>
 
 </div>
